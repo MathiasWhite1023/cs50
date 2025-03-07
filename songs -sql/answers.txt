@@ -1,0 +1,3 @@
+SELECT AVG(energy, valence, danceability) FROM songs;
+
+better ways: SELECT AVG(tempo) FROM songs;
