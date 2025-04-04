@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3> When was Brazil found? </h3>
+                <div>
+                    <button id="b1">1999</button>
+                    <button id="b2">1602</button>
+                    <button id="b3">1500</button>
+                </div>
+                <p id="message"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <div>
+                    <h3>Who is the president of Brazil?</h3>
+                    <div>
+                        <input id="answer" type="text" />
+                        <button id="check">Check Answer.</button>
+                        <p id="message_1"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const botao1 = document.querySelector("#b1");
+                const botao2 = document.querySelector("#b2");
+                const botao3 = document.querySelector("#b3");
+                const message = document.querySelector("#message");
+
+                function resetButtons() {
+                    botao1.style.backgroundColor = "";
+                    botao2.style.backgroundColor = "";
+                    botao3.style.backgroundColor = "";
+                }
+
+                botao1.addEventListener("click", function () {
+                    resetButtons();
+                    botao1.style.backgroundColor = "red";
+                    message.innerHTML = "Wrong!";
+                    message.style.color = "red";
+                });
+
+                botao2.addEventListener("click", function () {
+                    resetButtons();
+                    botao2.style.backgroundColor = "red";
+                    message.innerHTML = "Wrong!";
+                    message.style.color = "red";
+                });
+
+                botao3.addEventListener("click", function () {
+                    resetButtons();
+                    botao3.style.backgroundColor = "green";
+                    message.innerHTML = "Right!";
+                    message.style.color = "green";
+                });
+
+                const bot_check = document.querySelector("#check");
+                const answer_input = document.querySelector("#answer");
+                const message_1 = document.querySelector("#message_1");
+
+                bot_check.addEventListener("click", function () {
+                    const resposta = answer_input.value.trim().toLowerCase();
+                    if (resposta.includes("lula")) {
+                        message_1.innerHTML = "Right!";
+                        message_1.style.color = "green";
+                    } else {
+                        message_1.innerHTML = "Wrong!";
+                        message_1.style.color = "red";
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
