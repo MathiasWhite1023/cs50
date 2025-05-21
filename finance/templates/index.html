@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+
+{% block main %}
+
+<div class="container-fluid">
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for row in rows %}
+            {% if row.total_shares > 0 %}
+                <tr>
+                    <td>{{ row.symbol }}</td>
+                    <td>{{ row.total_shares }}</td>
+                    <td>${{ "%.2f"|format(row.price) }}</td>
+                    <td>${{ "%.2f"|format(row.total) }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Cash</td>
+            <td>${{ "%.2f"|format(cash) }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Total</td>
+            <td>${{ "%.2f"|format(total_dinheiro) }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

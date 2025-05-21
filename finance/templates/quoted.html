@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid">
+    <table class="table table-bordered table-striped text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ symbol }}</td>
+                <td>{{ name }}</td>
+                <td>${{ "%.2f"|format(price) }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
